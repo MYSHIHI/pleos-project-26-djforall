@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "sampleRate": 22050,
+  "tracks": [
+    {
+      "id": "neon",
+      "bpm": 96,
+      "seconds": 20.8,
+      "frames": 458640
+    },
+    {
+      "id": "cloud",
+      "bpm": 80,
+      "seconds": 24.8,
+      "frames": 546840
+    },
+    {
+      "id": "picnic",
+      "bpm": 108,
+      "seconds": 18.578,
+      "frames": 409640
+    },
+    {
+      "id": "wave",
+      "bpm": 88,
+      "seconds": 22.618,
+      "frames": 498730
+    },
+    {
+      "id": "sunset",
+      "bpm": 104,
+      "seconds": 19.261,
+      "frames": 424716
+    },
+    {
+      "id": "moon",
+      "bpm": 72,
+      "seconds": 27.467,
+      "frames": 605640
+    }
+  ]
+}

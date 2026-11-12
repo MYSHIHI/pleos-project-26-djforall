@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="pleos.car.permission.CAR_SEATS" />
+    <!-- Local join page for phones / seat screens on the vehicle Wi-Fi. No external servers are contacted. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <!-- Installed media apps (e.g. a streaming app signed in with the vehicle account) the user may choose. -->
+        <intent><action android:name="android.media.browse.MediaBrowserService" /></intent>
+        <intent><action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" /></intent>
+        <package android:name="com.iloen.melon" />
+        <package android:name="com.ktmusic.geniemusic" />
+        <package android:name="skplanet.musicmate" />
+        <package android:name="com.neowiz.android.bugs" />
+        <package android:name="com.naver.vibe" />
+        <package android:name="com.google.android.apps.youtube.music" />
+        <package android:name="com.spotify.music" />
+    </queries>
+    <uses-feature android:name="android.hardware.type.automotive" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <application android:allowBackup="false" android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules" android:icon="@drawable/ic_launcher"
+        android:label="모두의 DJ" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <uses-library android:name="android.car" android:required="false" />
+        <!-- Optional: lets the user grant access to other apps' media sessions. Notifications are never read. -->
+        <service android:name=".SessionAccessService" android:exported="true" android:label="모두의 DJ 음악 앱 제어"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter><action android:name="android.service.notification.NotificationListenerService" /></intent-filter>
+        </service>
+        <activity android:name=".MainActivity" android:exported="true">
+            <!-- Allowed on screen while driving: the app limits itself to a glanceable view and simple playback controls. -->
+            <meta-data android:name="distractionOptimized" android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
