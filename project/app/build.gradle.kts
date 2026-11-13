@@ -2,8 +2,8 @@ import java.util.Properties
 
 plugins { id("com.android.application") }
 
-// Release signing key lives outside Git (repo .local/signing/release.properties). Without it the release build stays unsigned.
-val signingFile = rootDir.resolve("../../.local/signing/release.properties")
+// Release signing settings are read from signing/release.properties (git-ignored). Without it the release build stays unsigned.
+val signingFile = rootDir.resolve("signing/release.properties")
 val signing = Properties().apply { if (signingFile.isFile) signingFile.inputStream().use { load(it) } }
 
 android {
